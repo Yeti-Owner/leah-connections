@@ -1,0 +1,478 @@
+[gd_scene load_steps=13 format=3 uid="uid://d02uf5yji6k38"]
+
+[ext_resource type="FontFile" uid="uid://b1p764siayhqr" path="res://fonts/ThinSmall.ttf" id="1_6ktbl"]
+[ext_resource type="FontFile" uid="uid://ctr1yagui62q1" path="res://fonts/Misc.ttf" id="1_a40s7"]
+[ext_resource type="Script" path="res://scripts/level.gd" id="2_2t4pn"]
+[ext_resource type="FontFile" uid="uid://cr03647ccd5cy" path="res://fonts/BigBold.ttf" id="2_05xn1"]
+[ext_resource type="Texture2D" uid="uid://dolnu6rqxj6cq" path="res://word_buttons/word_normal.png" id="4_mrl52"]
+[ext_resource type="Texture2D" uid="uid://dx47qhv5b328t" path="res://word_buttons/word_pressed.png" id="5_c4we2"]
+[ext_resource type="Texture2D" uid="uid://8n5qqas3q55t" path="res://word_buttons/word_hover.png" id="6_nriwi"]
+[ext_resource type="Texture2D" uid="uid://l15pgsitvj7m" path="res://word_buttons/button_disabled.png" id="7_vrhqx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f17rl"]
+bg_color = Color(0.994648, 0.954337, 1, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jlhp1"]
+bg_color = Color(0.986556, 0.888167, 1, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1en47"]
+bg_color = Color(0.967672, 0.744028, 1, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="Theme" id="Theme_1kaci"]
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/colors/font_focus_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+Button/colors/font_pressed_color = Color(0, 0, 0, 1)
+Button/font_sizes/font_size = 20
+Button/fonts/font = ExtResource("1_a40s7")
+Button/styles/hover = SubResource("StyleBoxFlat_f17rl")
+Button/styles/normal = SubResource("StyleBoxFlat_jlhp1")
+Button/styles/pressed = SubResource("StyleBoxFlat_1en47")
+
+[node name="Level" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_1kaci")
+script = ExtResource("2_2t4pn")
+
+[node name="Bg" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.999999, 0.825638, 0.992624, 1)
+
+[node name="Holder" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(600, 600)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -103.5
+offset_top = -37.5
+offset_right = 103.5
+offset_bottom = 37.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 15
+
+[node name="Title" type="Label" parent="Holder"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_6ktbl")
+theme_override_font_sizes/font_size = 36
+text = "Create four groups of four!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HintBtn" type="TextureButton" parent="Holder"]
+layout_mode = 2
+
+[node name="Words" type="GridContainer" parent="Holder"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+columns = 4
+
+[node name="Word1" type="TextureButton" parent="Holder/Words"]
+layout_mode = 2
+texture_normal = ExtResource("4_mrl52")
+texture_pressed = ExtResource("5_c4we2")
+texture_hover = ExtResource("6_nriwi")
+texture_disabled = ExtResource("7_vrhqx")
+
+[node name="Label" type="Label" parent="Holder/Words/Word1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_05xn1")
+theme_override_font_sizes/font_size = 22
+text = "Test"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Word2" type="TextureButton" parent="Holder/Words"]
+layout_mode = 2
+texture_normal = ExtResource("4_mrl52")
+texture_pressed = ExtResource("5_c4we2")
+texture_hover = ExtResource("6_nriwi")
+texture_disabled = ExtResource("7_vrhqx")
+
+[node name="Label" type="Label" parent="Holder/Words/Word2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_05xn1")
+theme_override_font_sizes/font_size = 22
+text = "Test"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Word3" type="TextureButton" parent="Holder/Words"]
+layout_mode = 2
+texture_normal = ExtResource("4_mrl52")
+texture_pressed = ExtResource("5_c4we2")
+texture_hover = ExtResource("6_nriwi")
+texture_disabled = ExtResource("7_vrhqx")
+
+[node name="Label" type="Label" parent="Holder/Words/Word3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_05xn1")
+theme_override_font_sizes/font_size = 22
+text = "Test"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Word4" type="TextureButton" parent="Holder/Words"]
+layout_mode = 2
+texture_normal = ExtResource("4_mrl52")
+texture_pressed = ExtResource("5_c4we2")
+texture_hover = ExtResource("6_nriwi")
+texture_disabled = ExtResource("7_vrhqx")
+
+[node name="Label" type="Label" parent="Holder/Words/Word4"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_05xn1")
+theme_override_font_sizes/font_size = 22
+text = "Test"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Word5" type="TextureButton" parent="Holder/Words"]
+layout_mode = 2
+texture_normal = ExtResource("4_mrl52")
+texture_pressed = ExtResource("5_c4we2")
+texture_hover = ExtResource("6_nriwi")
+texture_disabled = ExtResource("7_vrhqx")
+
+[node name="Label" type="Label" parent="Holder/Words/Word5"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_05xn1")
+theme_override_font_sizes/font_size = 22
+text = "Test"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Word6" type="TextureButton" parent="Holder/Words"]
+layout_mode = 2
+texture_normal = ExtResource("4_mrl52")
+texture_pressed = ExtResource("5_c4we2")
+texture_hover = ExtResource("6_nriwi")
+texture_disabled = ExtResource("7_vrhqx")
+
+[node name="Label" type="Label" parent="Holder/Words/Word6"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_05xn1")
+theme_override_font_sizes/font_size = 22
+text = "Test"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Word7" type="TextureButton" parent="Holder/Words"]
+layout_mode = 2
+texture_normal = ExtResource("4_mrl52")
+texture_pressed = ExtResource("5_c4we2")
+texture_hover = ExtResource("6_nriwi")
+texture_disabled = ExtResource("7_vrhqx")
+
+[node name="Label" type="Label" parent="Holder/Words/Word7"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_05xn1")
+theme_override_font_sizes/font_size = 22
+text = "Test"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Word8" type="TextureButton" parent="Holder/Words"]
+layout_mode = 2
+texture_normal = ExtResource("4_mrl52")
+texture_pressed = ExtResource("5_c4we2")
+texture_hover = ExtResource("6_nriwi")
+texture_disabled = ExtResource("7_vrhqx")
+
+[node name="Label" type="Label" parent="Holder/Words/Word8"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_05xn1")
+theme_override_font_sizes/font_size = 22
+text = "Test"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Word9" type="TextureButton" parent="Holder/Words"]
+layout_mode = 2
+texture_normal = ExtResource("4_mrl52")
+texture_pressed = ExtResource("5_c4we2")
+texture_hover = ExtResource("6_nriwi")
+texture_disabled = ExtResource("7_vrhqx")
+
+[node name="Label" type="Label" parent="Holder/Words/Word9"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_05xn1")
+theme_override_font_sizes/font_size = 22
+text = "Test"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Word10" type="TextureButton" parent="Holder/Words"]
+layout_mode = 2
+texture_normal = ExtResource("4_mrl52")
+texture_pressed = ExtResource("5_c4we2")
+texture_hover = ExtResource("6_nriwi")
+texture_disabled = ExtResource("7_vrhqx")
+
+[node name="Label" type="Label" parent="Holder/Words/Word10"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_05xn1")
+theme_override_font_sizes/font_size = 22
+text = "Test"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Word11" type="TextureButton" parent="Holder/Words"]
+layout_mode = 2
+texture_normal = ExtResource("4_mrl52")
+texture_pressed = ExtResource("5_c4we2")
+texture_hover = ExtResource("6_nriwi")
+texture_disabled = ExtResource("7_vrhqx")
+
+[node name="Label" type="Label" parent="Holder/Words/Word11"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_05xn1")
+theme_override_font_sizes/font_size = 22
+text = "Test"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Word12" type="TextureButton" parent="Holder/Words"]
+layout_mode = 2
+texture_normal = ExtResource("4_mrl52")
+texture_pressed = ExtResource("5_c4we2")
+texture_hover = ExtResource("6_nriwi")
+texture_disabled = ExtResource("7_vrhqx")
+
+[node name="Label" type="Label" parent="Holder/Words/Word12"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_05xn1")
+theme_override_font_sizes/font_size = 22
+text = "Test"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Word13" type="TextureButton" parent="Holder/Words"]
+layout_mode = 2
+texture_normal = ExtResource("4_mrl52")
+texture_pressed = ExtResource("5_c4we2")
+texture_hover = ExtResource("6_nriwi")
+texture_disabled = ExtResource("7_vrhqx")
+
+[node name="Label" type="Label" parent="Holder/Words/Word13"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_05xn1")
+theme_override_font_sizes/font_size = 22
+text = "Test"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Word14" type="TextureButton" parent="Holder/Words"]
+layout_mode = 2
+texture_normal = ExtResource("4_mrl52")
+texture_pressed = ExtResource("5_c4we2")
+texture_hover = ExtResource("6_nriwi")
+texture_disabled = ExtResource("7_vrhqx")
+
+[node name="Label" type="Label" parent="Holder/Words/Word14"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_05xn1")
+theme_override_font_sizes/font_size = 22
+text = "Test"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Word15" type="TextureButton" parent="Holder/Words"]
+layout_mode = 2
+texture_normal = ExtResource("4_mrl52")
+texture_pressed = ExtResource("5_c4we2")
+texture_hover = ExtResource("6_nriwi")
+texture_disabled = ExtResource("7_vrhqx")
+
+[node name="Label" type="Label" parent="Holder/Words/Word15"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_05xn1")
+theme_override_font_sizes/font_size = 22
+text = "Test"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Word16" type="TextureButton" parent="Holder/Words"]
+layout_mode = 2
+texture_normal = ExtResource("4_mrl52")
+texture_pressed = ExtResource("5_c4we2")
+texture_hover = ExtResource("6_nriwi")
+texture_disabled = ExtResource("7_vrhqx")
+
+[node name="Label" type="Label" parent="Holder/Words/Word16"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_05xn1")
+theme_override_font_sizes/font_size = 22
+text = "Test"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Options" type="HBoxContainer" parent="Holder"]
+layout_mode = 2
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="DeselectBtn" type="Button" parent="Holder/Options"]
+custom_minimum_size = Vector2(150, 35)
+layout_mode = 2
+text = "Deselect"
+
+[node name="SurrenderBtn" type="Button" parent="Holder/Options"]
+custom_minimum_size = Vector2(150, 35)
+layout_mode = 2
+text = "Give up :("
+
+[node name="Red" type="ColorRect" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 0, 0, 1)
+
+[connection signal="pressed" from="Holder/Options/DeselectBtn" to="." method="_on_deselect_btn_pressed"]
+[connection signal="pressed" from="Holder/Options/SurrenderBtn" to="." method="_on_surrender_btn_pressed"]

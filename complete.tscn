@@ -1,0 +1,261 @@
+[gd_scene load_steps=12 format=3 uid="uid://d0ocx68r83jam"]
+
+[ext_resource type="Script" path="res://scripts/complete_screen.gd" id="1_4xu4j"]
+[ext_resource type="FontFile" uid="uid://b1p764siayhqr" path="res://fonts/ThinSmall.ttf" id="1_ca23t"]
+[ext_resource type="FontFile" uid="uid://bjwfxaofgwvr0" path="res://fonts/Title.ttf" id="2_gupu8"]
+[ext_resource type="FontFile" uid="uid://ctr1yagui62q1" path="res://fonts/Misc.ttf" id="3_2detj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sxiua"]
+bg_color = Color(1, 0.945098, 0.431373, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o2eg2"]
+bg_color = Color(0.654902, 0.815686, 0.34902, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mkd2k"]
+bg_color = Color(0.729412, 0.819608, 1, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kp6cv"]
+bg_color = Color(0.768627, 0.513726, 0.815686, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_af1br"]
+bg_color = Color(0.114897, 0.114897, 0.114897, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kw0ef"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pxgl4"]
+bg_color = Color(0.0728426, 0.0728426, 0.0728426, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[node name="Complete" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4xu4j")
+
+[node name="Bg" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0.827451, 0.992157, 1)
+
+[node name="Margins" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Holder" type="VBoxContainer" parent="Margins"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="Title" type="Label" parent="Margins/Holder"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_ca23t")
+theme_override_font_sizes/font_size = 36
+text = "Four Groups Created!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Entries" type="VBoxContainer" parent="Margins/Holder"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 7
+
+[node name="Group1" type="Panel" parent="Margins/Holder/Entries"]
+custom_minimum_size = Vector2(0, 75)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_sxiua")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Margins/Holder/Entries/Group1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = -2
+
+[node name="GroupName" type="Label" parent="Margins/Holder/Entries/Group1/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_gupu8")
+theme_override_font_sizes/font_size = 40
+text = "TEST"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Entries" type="Label" parent="Margins/Holder/Entries/Group1/VBoxContainer"]
+custom_minimum_size = Vector2(680, 72)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_2detj")
+theme_override_font_sizes/font_size = 24
+text = "HELLO, HI, MAYBE"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Group2" type="Panel" parent="Margins/Holder/Entries"]
+custom_minimum_size = Vector2(0, 75)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_o2eg2")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Margins/Holder/Entries/Group2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = -2
+
+[node name="GroupName" type="Label" parent="Margins/Holder/Entries/Group2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_gupu8")
+theme_override_font_sizes/font_size = 40
+text = "TEST"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Entries" type="Label" parent="Margins/Holder/Entries/Group2/VBoxContainer"]
+custom_minimum_size = Vector2(680, 72)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_2detj")
+theme_override_font_sizes/font_size = 24
+text = "HELLO, HI, MAYBE"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Group3" type="Panel" parent="Margins/Holder/Entries"]
+custom_minimum_size = Vector2(0, 75)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_mkd2k")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Margins/Holder/Entries/Group3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = -2
+
+[node name="GroupName" type="Label" parent="Margins/Holder/Entries/Group3/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_gupu8")
+theme_override_font_sizes/font_size = 40
+text = "TEST"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Entries" type="Label" parent="Margins/Holder/Entries/Group3/VBoxContainer"]
+custom_minimum_size = Vector2(680, 72)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_2detj")
+theme_override_font_sizes/font_size = 24
+text = "HELLO, HI, MAYBE"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Group4" type="Panel" parent="Margins/Holder/Entries"]
+custom_minimum_size = Vector2(0, 75)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_kp6cv")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Margins/Holder/Entries/Group4"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = -2
+
+[node name="GroupName" type="Label" parent="Margins/Holder/Entries/Group4/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_gupu8")
+theme_override_font_sizes/font_size = 40
+text = "TEST"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Entries" type="Label" parent="Margins/Holder/Entries/Group4/VBoxContainer"]
+custom_minimum_size = Vector2(680, 72)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_2detj")
+theme_override_font_sizes/font_size = 24
+text = "HELLO, HI, MAYBE"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="MainMenuBtn" type="Button" parent="Margins/Holder"]
+custom_minimum_size = Vector2(150, 35)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_2detj")
+theme_override_styles/hover = SubResource("StyleBoxFlat_af1br")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_kw0ef")
+theme_override_styles/normal = SubResource("StyleBoxFlat_pxgl4")
+text = "Main Menu"
+
+[connection signal="pressed" from="Margins/Holder/MainMenuBtn" to="." method="_on_main_menu_btn_pressed"]
