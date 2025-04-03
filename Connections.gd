@@ -42,9 +42,45 @@ const levels: Dictionary = {
 			15 : ["Sushi","Your Favorites?"],
 			16 : ["Cats :)","Your Favorites?"]
 		}
+	},
+	"level2": {
+		"game_group": {
+			1 : ["Run a bookstore","Your 4 Big Dreams"],
+			2 : ["Tesla's","Things You Hate"],
+			3 : ["Howl's Moving Castle","Top 4 movies"],
+			4 : ["Sleeping til 12","Your Perfect Day"],
+			5 : ["Own bees","Your 4 Big Dreams"],
+			6 : ["Slow Drivers","Things You Hate"],
+			7 : ["Labyrinth","Top 4 movies"],
+			8 : ["Reading to Me","Your Perfect Day"],
+			9 : ["Get a cheese wheel","Your 4 Big Dreams"],
+			10 : ["Late Customers","Things You Hate"],
+			11 : ["About Time","Top 4 movies"],
+			12 : ["Callum-Time","Your Perfect Day"],
+			13 : ["Move to Vermont","Your 4 Big Dreams"],
+			14 : ["Pick-Me's","Things You Hate"],
+			15 : ["The Cat Returns","Top 4 movies"],
+			16 : ["Sweet Treats","Your Perfect Day"]
+		},
+		"ordered_group": {
+			1 : ["Run a bookstore","Your 4 Big Dreams"],
+			2 : ["Own bees","Your 4 Big Dreams"],
+			3 : ["Get a cheese wheel","Your 4 Big Dreams"],
+			4 : ["Move to Vermont","Your 4 Big Dreams"],
+			5 : ["Howl's Moving Castle","Top 4 movies"],
+			6 : ["Labyrinth","Top 4 movies"],
+			7 : ["About Time","Top 4 movies"],
+			8 : ["The Cat Returns","Top 4 movies"],
+			9 : ["Tesla's","Things You Hate"],
+			10 : ["Slow Drivers","Things You Hate"],
+			11 : ["Late Customers","Things You Hate"],
+			12 : ["Pick-Me's","Things You Hate"],
+			13 : ["Sleeping til 12","Your Perfect Day"],
+			14 : ["Reading to Me","Your Perfect Day"],
+			15 : ["Callum-Time","Your Perfect Day"],
+			16 : ["Sweet Treats","Your Perfect Day"]
+		}
 	}
-	# Add more levels here using the same structure:
-	# "level2": { "game_group": {}, "ordered_group": {} }
 }
 
 func select_random_level() -> void:
