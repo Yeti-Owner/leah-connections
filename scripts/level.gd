@@ -2,7 +2,7 @@ extends Control
 
 @export var test:String = ""
 
-@onready var word_bank = Connections.group1
+@onready var word_bank = Connections.current_game_group
 
 const SELECT_HOVER = preload("res://word_buttons/select_hover.png")
 const SELECT_NORMAL = preload("res://word_buttons/select_normal.png")

@@ -1,6 +1,6 @@
 extends Control
 
-@onready var connections = Connections.ordered_group1
+@onready var connections = Connections.current_ordered_group
 
 func _ready():
 	var counter:int = 1
