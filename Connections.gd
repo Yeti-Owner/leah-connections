@@ -3,6 +3,7 @@ extends Node
 var last_group
 var current_game_group: Dictionary
 var current_ordered_group: Dictionary
+var played_levels := {}
 
 const levels: Dictionary = {
 	"level1": {
@@ -88,7 +89,22 @@ func select_random_level() -> void:
 	if level_keys.size() == 0:
 		push_error("No levels defined in Connections.gd")
 		return
-	var selected_level: String = level_keys[randi() % level_keys.size()]
+	
+	# Get only unplayed levels
+	var unplayed = level_keys.filter(func(key): return not played_levels.has(key))
+	
+	# If all levels played, reset and allow repeats
+	if unplayed.is_empty():
+		played_levels.clear()
+		unplayed = level_keys.duplicate()
+	
+	# Select random level from unplayed
+	var selected_level: String = unplayed[randi() % unplayed.size()]
+	
+	# Mark as played
+	played_levels[selected_level] = true
+	
+	# Set current groups
 	current_game_group = levels[selected_level]["game_group"]
 	current_ordered_group = levels[selected_level]["ordered_group"]
 	last_group = current_game_group

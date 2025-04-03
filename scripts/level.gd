@@ -14,21 +14,29 @@ const WORD_PRESSED = preload("res://word_buttons/word_pressed.png")
 var correct_groups:int = 0
 var selected_word:int:set = _update_select
 var selection:Array = []
-
-var word_path:String = "Holder/Words/Word"
+var key_to_button: Dictionary = {}
 
 func _ready():
 	Connections.last_group = word_bank
 	
-	# Set up word texts
-	for entry in word_bank:
-		var word:String = word_path + str(entry)
-		var display:String = word_bank[int(entry)][0]
-		get_node(word).get_child(0).text = display
+	# Convert dictionary to array and shuffle
+	var entries = []
+	for key in word_bank:
+		entries.append({"key": key, "value": word_bank[key]})
+	entries.shuffle()
 	
-	# Set up button signals
-	for child in $Holder/Words.get_child_count():
-		get_node(word_path + str(child + 1)).pressed.connect(_select_word.bind(int(child + 1)))
+	var buttons = $Holder/Words.get_children()
+	
+	# Set up word texts and button mapping
+	for i in range(buttons.size()):
+		var button = buttons[i]
+		var entry = entries[i]
+		# Store mapping between original key and button
+		key_to_button[entry.key] = button
+		
+		button.get_child(0).text = entry.value[0]
+		
+		button.pressed.connect(_select_word.bind(entry.key))
 
 func _select_word(word:int):
 	selected_word = word
@@ -50,21 +58,24 @@ func _update_select(new_select):
 		for entry in selection:
 			if group != word_bank[entry][1]:
 				correct = false
-		if correct == false: # If not all 4 in same group flash red on screen
+		if correct == false:
 			_flash_red()
-		else: # If in same group disable buttons and remove selected
+		else:
 			_correct_group()
 
-func _color_word(word:int, selected:bool):
-	var edit_word := get_node(word_path + str(word))
-	if selected == true:
-		edit_word.texture_normal = SELECT_NORMAL
-		edit_word.texture_pressed = SELECT_PRESSED
-		edit_word.texture_hover = SELECT_HOVER
+func _color_word(word_key:int, selected:bool):
+	var button = key_to_button.get(word_key)
+	if !button:
+		return
+	
+	if selected:
+		button.texture_normal = SELECT_NORMAL
+		button.texture_pressed = SELECT_PRESSED
+		button.texture_hover = SELECT_HOVER
 	else:
-		edit_word.texture_normal = WORD_NORMAL
-		edit_word.texture_pressed = WORD_PRESSED
-		edit_word.texture_hover = WORD_HOVER
+		button.texture_normal = WORD_NORMAL
+		button.texture_pressed = WORD_PRESSED
+		button.texture_hover = WORD_HOVER
 
 func _flash_red():
 	var tween := get_tree().create_tween()
@@ -74,7 +85,7 @@ func _flash_red():
 func _correct_group():
 	correct_groups += 1
 	for entry in selection:
-		get_node(word_path + str(entry)).disabled = true
+		key_to_button[entry].disabled = true
 		selection = []
 	
 	if correct_groups == 4:
